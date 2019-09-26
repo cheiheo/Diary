@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="10dp"
+    android:layout_marginHorizontal="10dp"
+    android:gravity="center"
+    android:id="@+id/item_rv">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:background="@drawable/ic_circle_orange" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="5dp"
+            android:textSize="18sp"
+            android:id="@+id/date_tv_rv_item"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="5dp"
+        android:paddingLeft="22dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:paddingLeft="5dp"
+            android:textSize="18sp"
+            android:textColor="#1d1c1c"
+            android:id="@+id/title_tv_rv_item"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:paddingLeft="5dp"
+                android:textSize="16sp"
+                android:textColor="#1d1c1c"
+                android:id="@+id/content_tv_rv_item"/>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="45dp"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ic_delete_red"
+                android:id="@+id/delete_iv_rv_item"/>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="5dp"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ic_edit"
+                android:id="@+id/edit_iv_rv_item"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+
+</LinearLayout>
