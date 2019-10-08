@@ -58,6 +58,20 @@ public class DiaryList {
         database.update(DatabaseHelper.DATABASE_TABLE, getContentValues(diary), "id = ?", new String[]{id});
     }
 
+    public void setTag(Diary diary) {
+        String id = String.valueOf(diary.getId());
+        ContentValues values = new ContentValues();
+        values.put("tag", diary.getTag());
+        database.update(DatabaseHelper.DATABASE_TABLE, values, "id = ?", new String[]{id});
+    }
+
+    public void setTag(int id, String tag) {
+        String idstr = Integer.toString(id);
+        ContentValues values = new ContentValues();
+        values.put("tag", tag);
+        database.update(DatabaseHelper.DATABASE_TABLE, values, "id = ?", new String[]{idstr});
+    }
+
     public void deleteDiary(Diary diary) {
         String id = String.valueOf(diary.getId());
         database.delete(DatabaseHelper.DATABASE_TABLE, "id = ?", new String[]{id});

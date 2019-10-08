@@ -12,11 +12,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.cheiheo.diary.bean.Diary;
 import com.cheiheo.diary.bean.DiaryList;
+import com.cheiheo.diary.utils.SendNotification;
 
 import java.util.List;
 
 /**
- * author:chenhao
+ * author:chen hao
  * email::
  * time:2019/09/20
  * desc:
@@ -88,6 +89,8 @@ public class DiaryAdapter extends RecyclerView.Adapter<DiaryAdapter.ViewHolder> 
             public void onClick(View view) {
                 DiaryList.getInstance(view.getContext()).deleteDiary(diary);
                 diaries.remove(diary);
+                SendNotification sendNotification = new SendNotification(view.getContext());
+                sendNotification.send("Diary:" + diary.getTitle() ,"已删除");
                 editPosition = -1;
                 notifyDataSetChanged();
             }
