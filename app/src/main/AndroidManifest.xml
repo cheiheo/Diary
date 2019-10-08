@@ -11,13 +11,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ContentActivity"></activity>
+        <service
+            android:name=".service.OpenDialogService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".ContentActivity" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.cheiheo.diary.TEST" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>

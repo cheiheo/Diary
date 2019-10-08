@@ -2,15 +2,21 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/action_clock"
+        android:icon="@drawable/ic_circle"
+        app:showAsAction="ifRoom"
+        android:title="设置提醒" />
+
+    <item
         android:id="@+id/action_delete"
         android:icon="@drawable/ic_delete"
-        android:title="添加日记"
+        android:title="删除"
         app:showAsAction="ifRoom|withText"/>
 
     <item
         android:id="@+id/action_save"
         android:icon="@drawable/ic_save"
-        android:title="删除"
+        android:title="保存"
         app:showAsAction="ifRoom"/>
 
 </menu>

@@ -1,9 +1,17 @@
 package com.cheiheo.diary;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -54,6 +62,30 @@ public class MainActivity extends AppCompatActivity {
                 ContentActivity.startActivity(MainActivity.this);
             }
         });
+
+        // test();
+        MyBroadcastReceiver receiver = new MyBroadcastReceiver();
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("com.cheiheo.diary.TEST");
+        registerReceiver(receiver, intentFilter);
+    }
+
+    private void test() {
+        AlarmManager manager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        int time = 6*1000;
+        long target = SystemClock.elapsedRealtime() + time;
+        Intent intent = new Intent(MainActivity.this, ContentActivity.class);
+        PendingIntent pi = PendingIntent.getActivity(MainActivity.this, 0, intent, 0);
+        PendingIntent pi2 = PendingIntent.getActivity(MainActivity.this, 1, intent, 0);
+        manager.set(AlarmManager.RTC_WAKEUP, target, pi);
+        manager.set(AlarmManager.RTC_WAKEUP, target + time, pi2);
+    }
+
+    public class MyBroadcastReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Toast.makeText(context, context.toString(), Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -78,6 +110,8 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_settings) {
+            Intent intent = new Intent("com.cheiheo.diary.TEST");
+            sendBroadcast(intent);
             return true;
         }
 
